@@ -22,10 +22,9 @@ function createCard(cardData){
     cardTitle.textContent = cardData.name;
 
     const deleteButton = card.querySelector('.card__delete-button');
-    deleteButton.addEventListener('click', () => {
-        card.remove();
-    })
-    return cardElement;
+    deleteButton.addEventListener('click', () => deleteCard(card));
+
+    return cardElement; 
 }
 
 function renderInitialCards(){
@@ -33,6 +32,10 @@ function renderInitialCards(){
         const cardElement = createCard(cardData);
         cardsContainer.appendChild(cardElement);
     })
+}
+
+function deleteCard(card) {  
+   card.remove();
 }
 
 renderInitialCards();
