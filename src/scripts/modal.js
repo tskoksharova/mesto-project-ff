@@ -1,7 +1,3 @@
-const popupImage = document.querySelector('.popup_type_image');
-const popupImageElement = popupImage.querySelector('.popup__image');
-const popupCaptionElement = popupImage.querySelector('.popup__caption');
-
 function handleEscapeClose(evt) {
     if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_is-opened');
@@ -29,11 +25,4 @@ export function closePopup(popupElement) {
     popupElement.classList.add('popup_is-animated');
     document.removeEventListener('keydown', handleEscapeClose);
     popupElement.removeEventListener('mousedown', handleCloseEvents);
-}
-
-export function openImagePopup(cardData) {
-    popupImageElement.src = cardData.link;
-    popupImageElement.alt = cardData.name;
-    popupCaptionElement.textContent = cardData.name;
-    openPopup(popupImage);
 }
